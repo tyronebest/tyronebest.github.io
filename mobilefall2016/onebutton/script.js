@@ -1,4 +1,3 @@
-
 /*
 event handler for the button's for events :
 mousedown
@@ -9,16 +8,12 @@ mouseout
 var btn = document.getElementById("btn");
 var msg;
 
-//the event callback funtion
+//the event callback function
 
-function eventCallback(e){
+function eventCallback(e) {
     msg.innerHTML = e.type;
 }
 
 //attach event handlers to the button
 //for each of the four events mentioned above 
-btn.addEventListener("mousedown" ,function(e){
-    if (eventCallback === "mousedown"){
-        console.log("you hit mousedown");
-    }
-});
+btn.addEventListener("mousedown", eventCallback, false);
