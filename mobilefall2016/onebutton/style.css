@@ -1,4 +1,19 @@
-#bttn{
+.btn{
     text-align: center;
+
     
+}
+
+.btn{
+   
+    position: absolute;
+    top: 50%;
+right:50%;
+left:45%;
+bottom:45%;
+}
+
+.msg {
+
+    text-align: center;
 }
