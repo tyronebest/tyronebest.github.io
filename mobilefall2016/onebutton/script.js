@@ -17,3 +17,7 @@ function eventCallback(e) {
 //attach event handlers to the button
 //for each of the four events mentioned above 
 btn.addEventListener("mousedown", eventCallback);
+ btn.addEventListener("mouseup", eventCallback);
+  btn.addEventListener("mouseout", eventCallback);
+   btn.addEventListener("mouseover", eventCallback);
+  
