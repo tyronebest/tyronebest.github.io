@@ -12,10 +12,8 @@ var msg = document.getElementById("msg");
 
 function eventCallback(e) {
     msg.innerHTML = e.type;
-};
+}
 
 //attach event handlers to the button
 //for each of the four events mentioned above 
-btn.addEventListener("mousedown", function() {
-eventCallback("mouse down was clicked");
-  });
+btn.addEventListener("mousedown", eventCallback);
