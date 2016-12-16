@@ -4,16 +4,16 @@
 */
 var songs = {
 	1:{
-		song:"Bas Ft J. Cole",
-		picture: "khaledMind"
+		song:"Bas ft. J. Cole - Night Job",
+		picture: "bas"
 	},
 	'2':{
-		song:"Logic - 44 Bars",
-		picture: "EltonMona"
+		song:"Logic - 44 Bars ",
+		picture: "logic"
 	},
 	3:{
 		song:"Starrah - Rush",
-		picture: "JourneyFaith"
+		picture: "starrah"
 	}
 };
 
