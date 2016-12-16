@@ -4,15 +4,15 @@
 */
 var songs = {
 	1:{
-		song:"DJ Khaled - Do You Mind",
+		song:"Bas Ft J. Cole",
 		picture: "khaledMind"
 	},
 	'2':{
-		song:"Elton John - Mona Lisas And Mad Hatters",
+		song:"Logic - 44 Bars",
 		picture: "EltonMona"
 	},
 	3:{
-		song:"Journey - Faithfully",
+		song:"Starrah - Rush",
 		picture: "JourneyFaith"
 	}
 };
