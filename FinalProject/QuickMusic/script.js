@@ -1,20 +1,18 @@
-/*
-	Quick and dirty music player.
-	When a song is selected
-	1.) Its picture will show in the frame.
-	2.) The song will play.
-	
-*/
 //HTML element wrapper
 function id(idString){
-	return document.getElementById(idString);
+    return document.getElementById(idString);
 }
 // Gather all the elements
 var choices = id("choices");
 var pictureFrame = id("pictureFrame");
+var controlsFrame = id("controlsFrame");
 var songTitle = id("songTitle");
+var divs = document.getElementsByTagName('div');
 var boxes = document.getElementsByClassName('box');
-
+var app = divs[0];
+var controls = divs[1];
+var picture = divs[2];
+ 
 //listen for a change event in the choices element
 choices.addEventListener("change", playNewSong);
 window.addEventListener("load", function(e){
@@ -23,18 +21,18 @@ window.addEventListener("load", function(e){
     songTitle.innerHTML = "";
 });
 window.addEventListener("resize", adjustRem);
-
+ 
 //event handler functions below
 function adjustRem(e){
     document.documentElement.style.fontSize = (window.innerWidth / 50) + "px";
 }
 function playNewSong(){
-	var index = choices.selectedIndex;	
-	showThePicture();
-	showTheTitle(); 
-	playTheSong();
-	//---helper functions below----//
-	function showThePicture(){
+    var index = choices.selectedIndex;  
+    showThePicture();
+    showTheTitle(); 
+    playTheSong();
+    //---helper functions below----//
+    function showThePicture(){
         if ( index !== 0 ){
             //use the index to get the name of the picture
             var pictureFile = songs[index].picture + ".png";
@@ -46,23 +44,25 @@ function playNewSong(){
         else{
             pictureFrame.style.background = "black";            
         }
-	}
-	function showTheTitle(){
+    }
+    function showTheTitle(){
         if ( index !== 0){
             songTitle.innerHTML = songs[index].song;            
         }
-	}
-	function playTheSong(){
-		//point the player's scr property to the song's title with .mp3 extention
-		//play the player: player.play();
-		player.src = "songs/" + songs[index].song + ".mp3";
-		player.play();		
-	}
+    }
+    function playTheSong(){
+        //point the player's scr property to the song's title with .mp3 extention
+        //play the player: player.play();
+        player.src = "songs/" + songs[index].song + ".mp3";
+        player.play();      
+    }
 }
+ 
+// have window object handle resize event and load event
 window.addEventListener("load", flipFlop);
 window.addEventListener("resize", flipFlop);
-
-
+ 
+ 
 //make a resize handler
 function flipFlop(evtObj){
   var winWidth = window.innerWidth;
@@ -80,7 +80,7 @@ function flipFlop(evtObj){
       if(boxes[i].classList.contains("horizontal")){
         boxes[i].classList.remove("horizontal");
       }
-      boxes[i].classList.add("vertical");
+      boxes[i].classList.add("vertical")
     }
   }
   function makeHorizontal(){
