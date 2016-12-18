@@ -16,14 +16,42 @@ var picture = divs[2];
 //listen for a change event in the choices element
 choices.addEventListener("change", playNewSong);
 window.addEventListener("load", function(e){
-    adjustRem();
+    flipFlop();
     choices.selectedIndex = 0;
-    songTitle.innerHTML = "";
+    songTitle.innerHTML = " ";
 });
-window.addEventListener("resize", adjustRem);
+window.addEventListener("resize", flipFlop);
  
 //event handler functions below
-function adjustRem(e){
+function flipFlop(e){
+  var winWidth = window.innerWidth;
+  var winHeight = window.innerHeight;
+  if(winWidth >= winHeight){
+    makeHorizontal();
+  }
+  else{
+    makeVertical();
+  }
+  //--helper functions ---
+  function makeVertical(){
+    //alert("Gotta make it VERTICAL ||||");
+    for(var i= 0; i < boxes.length; i++){
+      if(boxes[i].classList.contains("horizontal")){
+        boxes[i].classList.remove("horizontal");
+      }
+      boxes[i].classList.add("vertical");
+    }
+  }
+  function makeHorizontal(){
+    //alert("Gotta make it HORIZONTAL ----")
+    for(var i=0; i < boxes.length; i++){
+      if(boxes[i].classList.contains("vertical")){
+        boxes[i].classList.remove("vertical");
+      }
+      boxes[i].classList.add("horizontal");
+    }
+  }
+
     document.documentElement.style.fontSize = (window.innerWidth / 50) + "px";
 }
 function playNewSong(){
@@ -59,37 +87,4 @@ function playNewSong(){
 }
  
 // have window object handle resize event and load event
-window.addEventListener("load", flipFlop);
-window.addEventListener("resize", flipFlop);
- 
- 
-//make a resize handler
-function flipFlop(evtObj){
-  var winWidth = window.innerWidth;
-  var winHeight = window.innerHeight;
-  if(winWidth >= winHeight){
-    makeHorizontal();
-  }
-  else{
-    makeVertical();
-  }
-  //--helper functions ---
-  function makeVertical(){
-    //alert("Gotta make it VERTICAL ||||");
-    for(var i= 0; i < boxes.length; i++){
-      if(boxes[i].classList.contains("horizontal")){
-        boxes[i].classList.remove("horizontal");
-      }
-      boxes[i].classList.add("vertical")
-    }
-  }
-  function makeHorizontal(){
-    //alert("Gotta make it HORIZONTAL ----")
-    for(var i=0; i < boxes.length; i++){
-      if(boxes[i].classList.contains("vertical")){
-        boxes[i].classList.remove("vertical");
-      }
-      boxes[i].classList.add("horizontal");
-    }
-  }
-}
+
